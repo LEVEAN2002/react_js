@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+import "./website/css/repontsite.css"
+import { Routes,Route ,BrowserRouter  } from 'react-router-dom';
 import './App.css';
-
+import ChangingText from './website/Text';
+import Logo from './website/logo';
+import Navbar from './website/navbar';
+import Home from "./website/home";
+import Footder from "./website/footder";
+import Donghonam from "./website/donghonam";
+import Admin from "./website/admin";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <ChangingText/>
+      <Logo/>
+      <Navbar/> 
+      <Routes>
+          <Route path="/home" element={<Home />}></Route>
+          <Route index element={<Home />} />
+          <Route path="/donghonambanchay/:id" element={<Donghonam/>}></Route>
+          <Route path='/admin' element={<Admin/>}></Route>
+       
+      </Routes>
+      </div>
+     
   );
 }
 
